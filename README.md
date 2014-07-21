@@ -26,7 +26,7 @@ To create/append/read files:
     client.create('/path/to/file', file_IO_handle, :overwrite => false, :permission => 0666)
 
     client.append('/path/to/existing/file', data)
-    
+
     client.read('/path/to/target') #=> data
     client.read('/path/to/target' :offset => 2048, :length => 1024) #=> data
 
@@ -34,9 +34,9 @@ To mkdir/rename/delete directories or files:
 
     client.mkdir('/hdfs/dirname')
     client.mkdir('/hdfs/dirname', :permission => 0777)
-    
+
     client.rename(original_path, dst_path)
-    
+
     client.delete(path)
     client.delete(dir_path, :recursive => true)
 
@@ -51,7 +51,7 @@ For known errors, automated retries are available. Set `retry_known_errors` opti
 
     #### To retry for LeaseExpiredException automatically
     client.retry_known_errors = true
-    
+
     # client.retry_interval = 1 # [sec], default: 1
     # client.retry_times = 1 # [times], default: 1
 
@@ -61,10 +61,10 @@ For known errors, automated retries are available. Set `retry_known_errors` opti
     WebHDFS::FileUtils.set_server(host, port)
     # or
     WebHDFS::FileUtils.set_server(host, port, username, doas)
-    
+
     WebHDFS::FileUtils.copy_from_local(localpath, hdfspath)
     WebHDFS::FileUtils.copy_to_local(hdfspath, localpath)
-    
+
     WebHDFS::FileUtils.append(path, data)
 
 ### For HttpFs
@@ -73,9 +73,9 @@ For HttpFs instead of WebHDFS:
 
     client = WebHDFS::Client.new('hostname', 14000)
     client.httpfs_mode = true
-    
+
     client.read(path) #=> data
-    
+
     # or with webhdfs/filetuils
     WebHDFS::FileUtils.set_server('hostname', 14000)
     WebHDFS::FileUtils.set_httpfs_mode
@@ -91,6 +91,8 @@ For HttpFs instead of WebHDFS:
 
 * Kazuki Ohta <kazuki.ohta@gmail.com>
 * TAGOMORI Satoshi <tagomoris@gmail.com>
+* ZiXian Shen <zixian.shen@gmail.com>
+* Takamatsu Tomoaki <takamatsutomoaki@gmail.com>
 
 ## LICENSE
 
