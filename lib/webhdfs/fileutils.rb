@@ -25,13 +25,16 @@ module WebHDFS
     #
     #   FileUtils.set_server 'localhost', 50070
     #
-    def set_server(host, port, user=nil, doas=nil, proxy_address=nil, proxy_port=nil)
+    def set_server(host, port, user=nil, doas=nil, proxy_address=nil, proxy_port=nil, auth_type=nil, keytab=nil, pass=nil)
       @fu_host = host
       @fu_port = port
       @fu_user = user
       @fu_doas = doas
       @fu_paddr = proxy_address
       @fu_pport = proxy_port
+      @fu_auth_type = auth_type
+      @fu_keytab = keytab
+      @fu_pass = pass
     end
     module_function :set_server
 
