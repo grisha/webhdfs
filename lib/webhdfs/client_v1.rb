@@ -291,7 +291,7 @@ module WebHDFS
 
       HTTPI.log       = false
       HTTPI.log_level = :debug
-      HTTPI.adapter   = :net_http #  one of [:httpclient, :curb, :net_http]
+      HTTPI.adapter   = :curb
 
       if @auth_type == :kerberos
         if @username
@@ -310,7 +310,6 @@ module WebHDFS
           end
           if inited
             krb5.cache
-            HTTPI.adapter = :curb
             req.auth.gssnegotiate
           end
         end
