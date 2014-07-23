@@ -350,7 +350,7 @@ module WebHDFS
               # ignore broken json response body
             end
           end
-          if detail && detail['RemoteException'] && KNOWN_ERRORS.include?(detail['RemoteException']['exception'])
+          if (res.code == 401) || (detail && detail['RemoteException'] && KNOWN_ERRORS.include?(detail['RemoteException']['exception']))
             sleep @retry_interval if @retry_interval > 0
             return request(host, port, method, path, op, params, payload, header, retries+1)
           end
