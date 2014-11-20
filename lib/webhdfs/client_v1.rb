@@ -312,6 +312,9 @@ module WebHDFS
             krb5.cache
             req.auth.gssnegotiate
           end
+        else
+          # assume we're kinited
+          req.auth.gssnegotiate
         end
       end
       req.proxy = "http://@proxy_address:@proxy_port" if @proxy_address && @proxy_port
